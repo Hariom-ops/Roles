@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config(); // 👈 MUST BE FIRST LINE
+dotenv.config(); // MUST BE FIRST
 
 import express from "express";
 import cors from "cors";
@@ -14,18 +14,30 @@ import adminRoutes from "./routes/adminRoutes.js";
 import bikeRoutes from "./routes/bikeRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 
-// ✅ Connect Database
+// Connect Database
 connectDB();
 
 const app = express();
 
-// ✅ Middleware
-app.use(cors({
-  origin: "https://e-bike-iota.vercel.app",
-  credentials: true
-}));
+// ======================
+// Middleware
+// ======================
 
-// ✅ Routes
+// Parse JSON request body
+app.use(express.json());
+
+// CORS
+app.use(
+  cors({
+    origin: "https://e-bike-iota.vercel.app",
+    credentials: true,
+  })
+);
+
+// ======================
+// Routes
+// ======================
+
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/seller", sellerRoutes);
@@ -33,26 +45,41 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/bikes", bikeRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-// ✅ Health Check
+// ======================
+// Health Check
+// ======================
+
 app.get("/", (req, res) => {
   res.send("🚀 E-Bike Rental API is Running...");
 });
 
-// ❌ 404
+// ======================
+// 404 Route
+// ======================
+
 app.use((req, res) => {
-  res.status(404).json({ msg: "Route not found" });
+  res.status(404).json({
+    msg: "Route not found",
+  });
 });
 
-// ⚠️ Error handler
+// ======================
+// Global Error Handler
+// ======================
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
+
   res.status(500).json({
     msg: "Server Error",
     error: err.message,
   });
 });
 
-// ✅ Start Server
+// ======================
+// Start Server
+// ======================
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
