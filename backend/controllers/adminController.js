@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 import Bike from "../models/bike.js";
-import Booking from "../models/Booking.js";
+import Booking from "../models/booking.js";
 
 // 👥 Get All Users
 export const getAllUsers = async (req, res) => {

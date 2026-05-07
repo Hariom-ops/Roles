@@ -1,4 +1,4 @@
-import Booking from "../models/Booking.js";
+import Booking from "../models/booking.js";
 import Bike from "../models/bike.js";
 import razorpay from "../utils/razorpay.js";
 import crypto from "crypto";

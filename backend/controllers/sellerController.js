@@ -1,5 +1,5 @@
 import Bike from "../models/bike.js";
-import Booking from "../models/Booking.js";
+import Booking from "../models/booking.js";
 
 // 📊 Seller Dashboard Stats
 export const getSellerDashboard = async (req, res) => {
