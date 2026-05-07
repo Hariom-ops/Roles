@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://roles-ftiu.onrender.com/",
+  baseURL: "https://roles-ftiu.onrender.com/api",
 });
 
 // Attach token automatically
