@@ -21,7 +21,7 @@ const app = express();
 
 // ✅ Middleware
 app.use(cors({
-  origin: "https://e-bike-iota.vercel.app/",
+  origin: "https://e-bike-iota.vercel.app",
   credentials: true
 }));
 
