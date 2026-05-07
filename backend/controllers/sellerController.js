@@ -1,4 +1,4 @@
-import Bike from "../models/Bike.js";
+import Bike from "../models/bike.js";
 import Booking from "../models/Booking.js";
 
 // 📊 Seller Dashboard Stats

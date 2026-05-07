@@ -1,4 +1,4 @@
-import Bike from "../models/Bike.js";
+import Bike from "../models/bike.js";
 
 // ➕ Create Bike (Seller)
 export const createBike = async (req, res) => {

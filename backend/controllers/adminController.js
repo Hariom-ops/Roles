@@ -1,5 +1,5 @@
 import User from "../models/User.js";
-import Bike from "../models/Bike.js";
+import Bike from "../models/bike.js";
 import Booking from "../models/Booking.js";
 
 // 👥 Get All Users
